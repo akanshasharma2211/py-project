@@ -45,24 +45,14 @@ pipeline {
             }
         }
         stage ("define remote"){
-            def remote = [:]
-        
-            remote.name = "ubuntu"
-            remote.host = "3.144.212.131"
-            remote.allowAnyHosts = true
-            
-           node {
-            withCredentials([sshUserPrivateKey(credentialsId: 'sshUser', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
-            remote.user = userName
-            remote.identityFile = identity
-        stage("SSH Steps Rocks!") {
-            writeFile file: 'abc.sh', text: 'date'
-            sshPut remote: remote, from: 'abc.sh', into: '.'
-            }
-
-            }
+           steps {
+                script {
+                    sshagent(credentials : ['ssh_login']){
+                     sh "ls"
+                    }
+                 }
+              }
            }
-       }   
-
+          
     }
 }
