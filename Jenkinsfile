@@ -48,8 +48,8 @@ pipeline {
             steps {
                 script {
                     sshremote(['ssh-login']) {
-                    docker.withRegistry('', registryCredential ) {
-                        dockerImage.pull()
+                    sh 'ls'
+ 
                        } 
                     }
                     
