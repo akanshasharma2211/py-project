@@ -47,7 +47,7 @@ pipeline {
         stage("running in staging") {
             steps {
                 script {
-                    sshagent(['ssh-login']) {
+                    sshremote(['ssh-login']) {
                     docker.withRegistry('', registryCredential ) {
                         dockerImage.pull()
                        } 
