@@ -44,15 +44,20 @@ pipeline {
                 }
             }
         }
-        stage ("define remote"){
-           steps {
+        stage("running in staging") {
+            steps {
                 script {
-                    sshagent(credentials : ['ssh_login']){
-                        sh "ls"
+                     def pullimage = "docker pull ${image}”
+                     def drun = "docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}”
+                    sshagent([‘ssh’-login]) {
+                        sh returnStatus: true, script: "ssh -o StrictHostKeyChecking=no ubuntu@3.140.247.108  ${pullimage}”
+                        sh returnStatus: true, script: "ssh -o StrictHostKeyChecking=no ubuntu@3.140.247.108  ${drun}"
                     }
-                 }
-              }
-           }
+                    
+                }
+                
+            }
+        }
           
     }
 }
