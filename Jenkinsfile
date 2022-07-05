@@ -48,7 +48,7 @@ pipeline {
             steps {
                 script {
                     sshagent(['ssh-login']) {
-                    sh 'ls'
+                        sh 'docker pull ${images}'
  
                        } 
                     }
