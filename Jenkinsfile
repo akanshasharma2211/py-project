@@ -47,7 +47,7 @@ pipeline {
         stage("running in staging") {
             steps {
                 script {
-                    sshremote(['ssh-login']) {
+                    sshagent(['ssh-login']) {
                     sh 'ls'
  
                        } 
