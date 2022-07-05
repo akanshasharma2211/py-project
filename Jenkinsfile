@@ -47,8 +47,8 @@ pipeline {
         stage("running in staging") {
             steps {
                 script {
-                     def pullimage = 'docker pull ${image}'
-                     def drun = 'docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}'
+                     def pullimage = 'sudo docker pull ${image}'
+                     def drun = 'sudo docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}'
                     sshagent(['ssh-login']) {
                         sh returnStatus: true, script: 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.26.223  ${pullimage}'
                         sh returnStatus: true, script: 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.26.223  ${drun}'
