@@ -45,14 +45,16 @@ pipeline {
             }
         }
         stage("running on dev-server") {
-            def dockerRun = "docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}"
-            sshAgent (['dev-server']){
-            sh "ssh -o StrictHostKeyChecking=no ubuntu@18.118.85.235 ${dockerRun}"
-                    
-                    
+            steps{
+                script{
+                     def dockerRun = "docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}"
+                     sshAgent (['dev-server']){
+                     sh "ssh -o StrictHostKeyChecking=no ubuntu@18.118.85.235 ${dockerRun}"
+                     
+                    }
                 }
-                
             }
+            
         }
           
     }
