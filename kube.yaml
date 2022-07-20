@@ -1,19 +1,23 @@
+---
+kind: Deployment
 apiVersion: apps/v1
-kind: Pod
 metadata:
-  name: python
+  name: python-app
+  namespace: default
+  labels:
+    app: python-app
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: python
-  replicas: 2 # tells deployment to run 2 pods matching the template
+      app: python-app
   template:
     metadata:
       labels:
-        app: python
+        app: python-app
     spec:
       containers:
-      - name: python
-        image: python:3.8-slim-buster
+      - name: python-app
+        image: "python:3.8-slim-buster"
         ports:
-        - containerPort: 5000
+          - containerPort: 5000
