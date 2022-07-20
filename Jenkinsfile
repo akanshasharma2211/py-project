@@ -49,7 +49,7 @@ pipeline {
                 script{
                      def dockerRun = "docker run -d --name ${JOB_NAME} -p 5000:5000 ${image}"
                      sshagent (['ssh-key']){
-                     sh "ssh -o StrictHostKeyChecking=no ubuntu@13.232.51.228 ${dockerRun}"
+                     sh "ssh -o StrictHostKeyChecking=no ubuntu@3.14.9.135 ${dockerRun}"
                      
                    
                 }
