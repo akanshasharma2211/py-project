@@ -50,9 +50,9 @@ pipeline {
                      sh "scp -o StrictHostKeyChecking=no kube.yaml ubuntu@3.144.178.217:/home/ubuntu"
                          script{
                              try{
-                                 sh "ssh -o ubuntu@3.144.178.217 kubectl apply -f /home/ubuntu/kube.yaml"
+                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@3.144.178.217 kubectl apply -f kube.yaml"
                              }catch(error){
-                                 sh "ssh -o ubuntu@3.144.178.217 kubectl create -f /home/ubuntu/kube.yaml"
+                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@3.144.178.217 kubectl create -f kube.yaml"
 
                      
                    }
