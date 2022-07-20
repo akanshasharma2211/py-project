@@ -13,7 +13,7 @@ spec:
         app: python
     spec:
       containers:
-      - name: python3
+      - name: python
         image: python:3.8-slim-buster
         ports:
         - containerPort: 5000
