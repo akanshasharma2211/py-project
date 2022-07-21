@@ -1,5 +1,5 @@
 ---
-kind: CustomResourceDefinition
+kind: 
 apiVersion: apps/v1
 metadata:
   name: pod1
