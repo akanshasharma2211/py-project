@@ -1,7 +1,7 @@
 def image
 pipeline {
     environment {
-        registry = "22119697/pipline"
+        registry = "22119697/k8s"
         registryCredential = 'docker-hub'
         dockerImage = ''
     }
