@@ -9,6 +9,7 @@ metadata:
 spec:
   replicas: 1
   selector:
+    env: "deployment"
     matchLabels:
       app: python-app
   template:
