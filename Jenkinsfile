@@ -47,12 +47,12 @@ pipeline {
         stage("Deploy on k8s") {
             steps{
                      sshagent (['ssh-key']){
-                     sh "scp -o StrictHostKeyChecking=no kube.yaml ubuntu@3.144.178.217:/home/ubuntu"
+                     sh "scp -o StrictHostKeyChecking=no kube.yaml ubuntu@18.191.216.121:/home/ubuntu"
                          script{
                              try{
-                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@3.144.178.217 kubectl apply -f kube.yaml"
+                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@18.191.216.121 kubectl apply -f kube.yaml"
                              }catch(error){
-                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@3.144.178.217 kubectl create -f kube.yaml"
+                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@18.191.216.121 kubectl create -f kube.yaml"
 
                      
                    }
