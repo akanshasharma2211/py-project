@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: hello-python
-        image: python:3.8-slim-buster       
+        image: python:3.7       
         imagePullPolicy: Never
         ports:
         - containerPort: 5000
