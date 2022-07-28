@@ -9,7 +9,7 @@ services:
     #- MONGO_DB_USERNAME=devdb
     #- MONGO_DB_PASSWORD=devdb123
     ports:
-      - 5000:5000
+      - 3089:3089
     #working_dir: /app
     depends_on:
       - python
