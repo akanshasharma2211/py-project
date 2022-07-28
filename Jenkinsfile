@@ -49,7 +49,7 @@ pipeline {
                      sshagent (['ssh-key']){
                      sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ubuntu@18.222.130.89:/home/ubuntu"
                          script {
-                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@18.222.130.89 docker stack deploy -c docker-compose.yaml stackdemo"
+                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@18.222.130.89 docker stack deploy -c /home/ubuntu/docker-compose.yaml stackdemo"
                              }
                          
                          
