@@ -15,16 +15,8 @@ services:
       - python
     networks:
     - real11  
-    deploy:  # This will be considered only in docker swarm.
+    deploy:  
       replicas: 2
-      #update_config:
-       # parallelism: 1
-        delay: 20s
-      restart_policy:
-        condition: on-failure
-        delay: 10s
-        max_attempts: 5
-
   #mongo:
    # image: mongo
     #environment:
@@ -42,4 +34,4 @@ services:
     
 networks:
   real11:
-    external: true
+    external: false
