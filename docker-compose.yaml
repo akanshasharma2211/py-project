@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   python:
-    image: 22119697/pipline:1
+    image: 22119697/pipline:2
     restart: always 
     ports:
       - 3089:3089
