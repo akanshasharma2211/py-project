@@ -2,36 +2,16 @@ version: '3.1'
 
 services:
   python:
-    image: 22119697/pipline:2
-    restart: always # This will be ignored if we deploy in docker swarm
-   # environment:
-    #- MONGO_DB_HOSTNAME=mongo
-    #- MONGO_DB_USERNAME=devdb
-    #- MONGO_DB_PASSWORD=devdb123
+    image: 22119697/pipline:1
+    restart: always 
     ports:
       - 3089:3089
-    #working_dir: /app
     depends_on:
       - python
     networks:
     - real11  
     deploy:  
       replicas: 2
-  #mongo:
-   # image: mongo
-    #environment:
-    #- MONGO_INITDB_ROOT_USERNAME=devdb
-    #- MONGO_INITDB_ROOT_PASSWORD=devdb123
-    #volumes:
-     # - mongodb:/data/db
-    #restart: always
-    #networks:
-    #- springappnetwork
-    
-#volumes:
- # mongodb:
-  #  external: true
-    
+      
 networks:
   real11:
-    external: false
