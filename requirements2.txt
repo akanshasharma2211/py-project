@@ -2,4 +2,3 @@ Flask
 redis
 pandas
 pymongo
-Footer
