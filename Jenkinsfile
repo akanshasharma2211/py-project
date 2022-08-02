@@ -47,9 +47,9 @@ pipeline {
         stage("Deploy on k8s") {
             steps{
                      sshagent (['ssh-key']){
-                     sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ubuntu@13.59.178.226:/home/ubuntu"
+                     sh "scp -o StrictHostKeyChecking=no docker-compose.yaml ubuntu@3.22.183.5:/home/ubuntu"
                          script {
-                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@13.59.178.226 docker stack deploy --prune --compose-file docker-compose.yaml stackdemo"
+                                 sh "ssh -o StrictHostKeyChecking=no ubuntu@3.22.183.5 docker stack deploy --prune --compose-file docker-compose.yaml stackdemo"
                              }
                          
                          
