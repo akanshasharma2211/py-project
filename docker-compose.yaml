@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
   python:
-    image: 22119697/pipline:4
+    image: 22119697/pipline:1
     restart: always 
     ports:
       - 3089:3089
@@ -11,7 +11,23 @@ services:
     networks:
     - real11  
     deploy:  
-      replicas: 2
+      replicas: 1
+      
+networks:
+  real11:
+  
+services:
+  python:
+    image: 22119697/pipline:1
+    restart: always 
+    ports:
+      - 3089:3089
+    depends_on:
+      - python
+    networks:
+    - real11  
+    deploy:  
+      replicas: 1
       
 networks:
   real11:
